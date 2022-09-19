@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <script src="./primera_entrega.js"></script>
-</body>
+  </head>
+  <body>
+    <h1>Bienvenida</h1>
+    <h2>Información de descuento.</h2>
+    <div id="productosLista"></div>
+
+    <template id="template-card">
+        <div class="card">
+            <img class="card-img-top" src="" alt="">
+            <br>
+            <b>Producto: </b> <span class="producto"></span>
+            <br>
+            <b>Precio: </b> <span class="precio"></span>
+        </div>
+        <button>Agregar al carrito</button>
+    </template>
+
+    <script src="./desafio_4.js"></script>
+  </body>
 </html>
