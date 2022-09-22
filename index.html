@@ -6,22 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+
   <body>
     <h1>Bienvenida</h1>
     <h2>Información de descuento.</h2>
     <div id="productosLista"></div>
+    <br />
+    <div>
+      <h3>Carrito de compra</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Item</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tbody id="calculoCompra"></tbody>
+          <tr id="totalPagar">
+            <th>
+              <h3>Total a pagar</h3>
+              <td class="font-weight-bold">$ <span>0</span></td>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
 
     <template id="template-card">
-        <div class="card">
-            <img class="card-img-top" src="" alt="">
-            <br>
-            <b>Producto: </b> <span class="producto"></span>
-            <br>
-            <b>Precio: </b> <span class="precio"></span>
-        </div>
-        <button>Agregar al carrito</button>
+      <div class="card">
+        <img class="card-img-top" src="" alt="" />
+        <br />
+        <b>Producto: </b> <span class="producto"></span>
+        <br />
+        <b>Precio: </b> $ <span class="precio"></span>
+        <br />
+        <button class="agregarButton">Agregar al carrito</button>
+      </div>
     </template>
 
-    <script src="./desafio_4.js"></script>
+    <template id="template-carrito">
+      <tr>
+        <td>id</td>
+        <td>Correa para paseo</td>
+        <td>1</td>
+        <td>$ <span>50</span></td>
+      </tr>
+    </template>
+
+    <template id="template-total-pagar">
+      <th><h3>Total a pagar</h3></th>
+      <td class="font-weight-bold">$ <span>0</span></td>
+    </template>
+
+    <script src="./desafio_5.js"></script>
   </body>
 </html>
