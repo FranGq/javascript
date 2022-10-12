@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "imagen": "./img/correaPaseo.png",
+        "nombre": "Correa para paseo",
+        "precio": 50
+    },
+    {
+        "id": 2,
+        "imagen": "./img/cajaArena.png",
+        "nombre": "Caja de arena",
+        "precio": 100
+    },
+    {
+        "id": 3,
+        "imagen": "./img/pelota.png",
+        "nombre": "Pelota",
+        "precio": 25
+    },
+    {
+        "id": 4,
+        "imagen": "./img/huesoGoma.png",
+        "nombre": "Hueso de goma",
+        "precio": 40
+    },
+    {
+        "id": 5,
+        "imagen": "./img/disfrazPreso.png",
+        "nombre": "Disfraz de Preso",
+        "precio": 70
+    }
+]

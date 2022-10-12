@@ -5,35 +5,6 @@ document.querySelector("h1").textContent =
 document.querySelector("h2").textContent =
   "Si el valor de su compra es igual o mayor a $200 recibirá un descuento en el total.";
 
-// CONSTRUCCIÓN DE OBJETOS
-
-class Producto {
-  constructor(id, imagen, nombre, precio) {
-    this.id = id;
-    this.imagen = imagen;
-    this.nombre = nombre;
-    this.precio = precio;
-  }
-}
-
-// LISTADO DE PRODUCTOS CON ID, IMAGEN DEL PRODUCTO, NOMBRE Y PRECIO
-
-const cartProducts = [];
-
-const productos = [
-  new Producto(1, "./img/CorreaPaseo.png", "Correa para paseo", 50),
-  new Producto(2, "./img/cajaArena.png", "Caja de arena", 100),
-  new Producto(3, "./img/pelota.png", "Pelota", 25),
-  new Producto(4, "./img/huesoGoma.png", "Hueso de goma", 40),
-];
-
-cartProducts.push(productos);
-
-// ARRAY DE PRODUCTOS A JSON
-
-const jsonCartProducts = JSON.stringify(cartProducts);
-console.log(jsonCartProducts);
-
 // CARRITO DE COMPRAS
 
 let carrito = {};
@@ -41,25 +12,40 @@ let carrito = {};
 const card = document.getElementById("productosLista");
 const calculoCompra = document.getElementById("calculoCompra");
 const totalPagar = document.getElementById("totalPagar");
-const template = document.getElementById("template-card").content;
-const templateCarrito = document.getElementById("template-carrito").content;
+const template = document.getElementById("templateCard").content;
+const templateCarrito = document.getElementById("templateCarrito").content;
 const templateTotalPagar = document.getElementById(
   "template-total-pagar"
 ).content;
 const fragment = document.createDocumentFragment();
 
-// CONSTRUCCIÓN DE TARJETAS DE PRODUCTOS
+// CONSTRUCCIÓN DE TARJETAS DE PRODUCTOS CON BASE DE DATOS DE JSON
 
-productos.forEach((item) => {
-  template.querySelector(".card-img-top").setAttribute("src", `${item.imagen}`);
-  template.querySelector(".producto").textContent = `${item.nombre}`;
-  template.querySelector(".precio").textContent = `${item.precio}`;
-  template.querySelector(".agregarButton").dataset.id = `${item.id}`;
+document.addEventListener('DOMContentLoaded', () => {
+  fetchData()
+})
+
+const fetchData = async () => {
+  try {
+    const response = await fetch('bdatos.json')
+    const bdatos = await response.json()
+    productos(bdatos)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const productos = bdatos => {
+  bdatos.forEach(item => {
+  template.querySelector(".card-img-top").setAttribute("src", item.imagen);
+  template.querySelector(".producto").textContent = item.nombre;
+  template.querySelector(".precio").textContent = item.precio;
+  template.querySelector(".agregarButton").dataset.id = item.id;
   const clone = template.cloneNode(true);
   fragment.appendChild(clone);
 });
-
 card.appendChild(fragment);
+}
 
 // FUNCIÓN PARA AGREGAR PRODUCTOS CON BOTÓN, LOS PRODUCTOS SE VAN AGREGANDO AL CARRITO DE COMPRAS
 
